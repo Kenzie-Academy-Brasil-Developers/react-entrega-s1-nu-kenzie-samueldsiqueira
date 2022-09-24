@@ -9,7 +9,10 @@ function App() {
 
 	return (
 		<div>
-			<h1>to funcionando</h1>
+			<nav>
+				<h1>to funcionando</h1>
+				<button className='large-primary--button '>Clicke aqui</button>
+			</nav>
 		</div>
 	);
 }
