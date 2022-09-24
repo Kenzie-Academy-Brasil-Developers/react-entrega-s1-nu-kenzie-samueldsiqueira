@@ -1,5 +1,10 @@
 import { useState } from 'react';
 import './styles/globals.css';
+import Forms from './components/Forms';
+import TransactionList from './components/TransactionList';
+import List from './components/List/List';
+import TotalMoney from './components/TotalMoney/TotalMoney';
+import './App.css';
 
 function App() {
 	const [listTransactions, setListTransactions] = useState([
@@ -8,11 +13,12 @@ function App() {
 	]);
 
 	return (
-		<div>
-			<nav>
-				<h1>to funcionando</h1>
-				<button className='large-primary--button '>Clicke aqui</button>
-			</nav>
+		<div className='App'>
+			<header className='App-header'>
+				<Forms></Forms>
+				<TotalMoney listTransaction={listTransactions} />
+				<List listTransactions={listTransactions}></List>
+			</header>
 		</div>
 	);
 }

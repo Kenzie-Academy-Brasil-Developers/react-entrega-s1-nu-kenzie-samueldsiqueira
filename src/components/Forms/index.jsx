@@ -1,22 +1,9 @@
 import { useState } from 'react';
-import './style.scss';
 
 const Forms = ({ listTransactions, setListTransactions }) => {
 	const [description, setDescription] = useState('');
 	const [type, setType] = useState('');
 	const [value, setValue] = useState('');
-
-	const handleDescription = (event) => {
-		setDescription(event.target.value);
-	};
-
-	const handleType = (event) => {
-		setType(event.target.value);
-	};
-
-	const handleValue = (event) => {
-		setValue(event.target.value);
-	};
 
 	const handleSubmit = (event) => {
 		event.preventDefault();

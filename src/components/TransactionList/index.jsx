@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-const Card = ({ transaction }) => {
+const TransactionList = ({ transaction }) => {
 	return (
 		<>
 			<li>
@@ -12,4 +12,4 @@ const Card = ({ transaction }) => {
 	);
 };
 
-export default Card;
+export default TransactionList;
