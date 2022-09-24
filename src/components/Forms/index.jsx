@@ -33,7 +33,7 @@ const Forms = ({ listTransactions, setListTransactions }) => {
 
 	return (
 		<div>
-			<form>
+			<form onSubmit={handleSubmit}>
 				<label>
 					Descrição
 					<input type='text' placeholder='Digite aqui sua descrição' />
