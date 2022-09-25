@@ -1,5 +1,7 @@
+import style from './Card.module.css';
+
 const Card = ({ children }) => {
-	return <div>{children}</div>;
+	return <div className={style.cardContent}>{children}</div>;
 };
 
 export default Card;

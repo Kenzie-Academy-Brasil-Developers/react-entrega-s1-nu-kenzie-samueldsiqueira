@@ -1,14 +1,12 @@
-const TotalMoney = ({ listTransaction }) => {
-	const moneyStash = listTransaction.reduce((total, item) => {
-		return total.value + item;
-	}, 0);
+import Card from '../Card/Card';
 
+const TotalMoney = ({ moneyStash }) => {
 	return (
-		<div className='total-money'>
+		<Card>
 			<h3>Saldo:</h3>
-			<p>{moneyStash}</p>
+			<p>$ {moneyStash}</p>
 			<p>O saldo que você possui</p>
-		</div>
+		</Card>
 	);
 };
 
