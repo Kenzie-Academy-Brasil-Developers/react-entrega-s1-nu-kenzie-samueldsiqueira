@@ -8,9 +8,9 @@ import ListContent from './components/ListContent/ListContent';
 
 function App() {
 	const [listTransactions, setListTransactions] = useState([
-		{ id: 1, description: 'Salário recebido', type: 'entrada', value: 2500 },
-		{ id: 2, description: 'Salário recebido', type: 'entrada', value: 2500 },
-		{ id: 3, description: 'Conta de luz', type: 'saida', value: -150 },
+		{ id: 1, description: 'Salário recebido', type: 'Entrada', value: 2500 },
+		{ id: 2, description: 'Salário recebido', type: 'Entrada', value: 2500 },
+		{ id: 3, description: 'Conta de luz', type: 'Saída', value: -150 },
 	]);
 
 	const [newData, setNewData] = useState({
@@ -20,17 +20,17 @@ function App() {
 		type: '',
 	});
 
+	// const [allTransactions, setListTransactions] = useState(listTransactions);
+	const moneyStash = listTransactions.reduce((total, item) => {
+		return total + item.value;
+	}, 0);
+
 	const removeTransaction = (id) => {
 		const newList = listTransactions.filter((transaction) => transaction.id !== id);
 		setListTransactions(newList);
 	};
 
-	const moneyStash = listTransactions.reduce((total, item) => {
-		return total + item.value;
-	}, 0);
-
-	const handleSubmit = (event) => {
-		event.preventDefault();
+	const handleSubmit = () => {
 		setListTransactions([...listTransactions, newData]);
 
 		setNewData({
@@ -39,6 +39,16 @@ function App() {
 			value: Number,
 			type: '',
 		});
+	};
+
+	const handleAllTransactions = () => {
+		const newList = listTransactions.map((transaction) => transaction);
+		return newList;
+	};
+
+	const handleFilterTransactions = (type) => {
+		const filterTransactions = listTransactions.filter((transaction) => transaction.type === type);
+		setListTransactions(filterTransactions);
 	};
 
 	return (
@@ -50,7 +60,13 @@ function App() {
 				<Forms newData={newData} setNewData={setNewData} handleSubmit={handleSubmit}></Forms>
 			</>
 			<ul>
-				<ListContent listTransactions={listTransactions} removeThisTransaction={removeTransaction} />
+				<ListContent
+					listTransactions={listTransactions}
+					setListTransaction={setListTransactions}
+					removeThisTransaction={removeTransaction}
+					handleAllTransactions={handleAllTransactions}
+					handleFilterTransactions={handleFilterTransactions}
+				/>
 			</ul>
 			<>
 				<TotalMoney moneyStash={moneyStash} />
