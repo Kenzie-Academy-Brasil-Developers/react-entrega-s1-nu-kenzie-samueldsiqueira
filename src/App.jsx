@@ -34,9 +34,10 @@ const App = () => {
 			setValidateForm(false);
 			return;
 		}
-		if (newData.value > 0) {
-			setValidateForm(false);
-
+		if (newData.type === 'Saída') {
+			if (newData.value > 0) {
+				setValidateForm(false);
+			}
 			return;
 		}
 		const newTransaction = {

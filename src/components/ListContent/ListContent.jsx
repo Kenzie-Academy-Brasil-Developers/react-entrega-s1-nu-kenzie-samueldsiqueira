@@ -46,6 +46,7 @@ const ListContent = ({
 					{newListTransaction.length ? (
 						newListTransaction.map((transaction) => (
 							<li key={transaction.id}>
+								<span>{transaction.type}</span>
 								<p>{transaction.description}</p>
 								<p>{transaction.value}</p>
 								<button className='' onClick={() => removeThisTransaction(transaction.id)}>
