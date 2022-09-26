@@ -5,16 +5,16 @@ const Forms = ({ handleSubmit, setNewData, newData, validateForm, setValidateFor
 	return (
 		<Card>
 			<form onSubmit={handleSubmit}>
-				<label htmlFor='description'></label>
 				<label>
 					Descrição
 					<input
 						type='text'
 						id='descriptionForm'
+						name='description'
 						className={validateForm ? style.validForm : style.invalidForm}
 						placeholder='Digite aqui sua descrição'
 						value={newData.description}
-						onChange={(event) => setNewData({ ...newData, description: event.target.value.trim() })}
+						onChange={(event) => setNewData({ ...newData, description: event.target.value })}
 					/>
 					<span>Ex: Compra de roupas</span>
 				</label>
@@ -26,6 +26,7 @@ const Forms = ({ handleSubmit, setNewData, newData, validateForm, setValidateFor
 						type='number'
 						id='valueForm'
 						placeholder='Digite aqui o valor'
+						name='value'
 						value={newData.value}
 						onChange={(event) => setNewData({ ...newData, value: Number(event.target.value) })}
 					/>
@@ -40,15 +41,13 @@ const Forms = ({ handleSubmit, setNewData, newData, validateForm, setValidateFor
 						id='typeForme'
 						className={style.validateForm}
 						value={newData.type}
-						onChange={(event) => setNewData({ ...newData, type: toString(event.target.value) })}
+						onChange={(event) => setNewData({ ...newData, type: event.target.value.toLowerCase() })}
 					>
 						<option value='entrada'>Entrada</option>
 						<option value='saida'>Despesas</option>
 					</select>
 				</label>
-				<button type='submit' disabled={validateForm}>
-					Adicionar
-				</button>
+				<button type='submit'>Adicionar</button>
 			</form>
 		</Card>
 	);

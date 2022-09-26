@@ -9,7 +9,7 @@ const ListContent = ({
 	handleResetSearch,
 }) => {
 	const newListTransaction = filterTransaction !== 'todos' ? foundedTransactions : listTransactions;
-
+	console.log(newListTransaction);
 	return (
 		<div>
 			<Card>
@@ -43,15 +43,19 @@ const ListContent = ({
 
 			<Card>
 				<ul>
-					{newListTransaction.map((transaction) => (
-						<li key={transaction.id}>
-							<p>{transaction.description}</p>
-							<p>{transaction.value}</p>
-							<button className='' onClick={() => removeThisTransaction(transaction.id)}>
-								X
-							</button>
-						</li>
-					))}
+					{newListTransaction.length ? (
+						newListTransaction.map((transaction) => (
+							<li key={transaction.id}>
+								<p>{transaction.description}</p>
+								<p>{transaction.value}</p>
+								<button className='' onClick={() => removeThisTransaction(transaction.id)}>
+									X
+								</button>
+							</li>
+						))
+					) : (
+						<p>Nenhuma transação encontrada</p>
+					)}
 				</ul>
 			</Card>
 		</div>
