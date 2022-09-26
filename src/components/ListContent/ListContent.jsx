@@ -9,7 +9,6 @@ const ListContent = ({
 	handleResetSearch,
 }) => {
 	const newListTransaction = filterTransaction !== 'todos' ? foundedTransactions : listTransactions;
-	console.log(newListTransaction);
 	return (
 		<div>
 			<Card>
