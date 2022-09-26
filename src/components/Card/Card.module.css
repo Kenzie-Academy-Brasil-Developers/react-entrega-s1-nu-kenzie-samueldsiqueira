@@ -1,11 +1,10 @@
 .cardContent {
-  padding: 1rem;
+  padding: 2rem;
   display: flex;
   flex-direction: column;
-  height: 15em;
-  width: 100vw;
   background-color: var(--very-light-gray);
   align-content: center;
   color: var(--very-gray);
   border: solid 1px var(--light-gray);
+  border-radius: 5px;
 }

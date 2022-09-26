@@ -12,43 +12,62 @@ function App() {
 		{ id: 2, description: 'Salário recebido', type: 'Entrada', value: 2500 },
 		{ id: 3, description: 'Conta de luz', type: 'Saída', value: -150 },
 	]);
-
 	const [newData, setNewData] = useState({
-		id: Number(listTransactions.length + 1),
+		id: Math.random(),
 		description: '',
 		value: Number,
 		type: '',
 	});
-
-	// const [allTransactions, setListTransactions] = useState(listTransactions);
+	const [validateForm, setValidateForm] = useState(true);
 	const moneyStash = listTransactions.reduce((total, item) => {
 		return total + item.value;
 	}, 0);
+	const [foundedTransactions, setFoundedTransactions] = useState([]);
+	const [filterTransaction, setFilterTransaction] = useState('todos');
 
 	const removeTransaction = (id) => {
 		const newList = listTransactions.filter((transaction) => transaction.id !== id);
 		setListTransactions(newList);
 	};
 
-	const handleSubmit = () => {
-		setListTransactions([...listTransactions, newData]);
+	const handleSubmit = (event) => {
+		event.preventDefault();
+
+		if (newData.description === '' || newData.value === '' || newData.type === '') {
+			setValidateForm(false);
+			return;
+		}
+		if (newData.value <= 0) {
+			setValidateForm(false);
+
+			return;
+		}
+		const newTransaction = {
+			id: Math.random(),
+			description: newData.description,
+			value: Number(newData.value),
+			type: newData.type,
+		};
+
+		setListTransactions([...listTransactions, newTransaction]);
 
 		setNewData({
 			id: Number(listTransactions.length + 1),
 			description: '',
+			type: 'entrada',
 			value: Number,
-			type: '',
 		});
 	};
 
-	const handleAllTransactions = () => {
-		const newList = listTransactions.map((transaction) => transaction);
-		return newList;
+	const handleFounded = (filter) => {
+		const newFilter = listTransactions.filter((transaction) => transaction.type === filter);
+		setFoundedTransactions(newFilter);
+		setFilterTransaction(filter);
 	};
 
-	const handleFilterTransactions = (type) => {
-		const filterTransactions = listTransactions.filter((transaction) => transaction.type === type);
-		setListTransactions(filterTransactions);
+	const handleResetSearch = () => {
+		setFoundedTransactions([]);
+		setFilterTransaction('todos');
 	};
 
 	return (
@@ -57,15 +76,22 @@ function App() {
 				<Header></Header>
 			</>
 			<>
-				<Forms newData={newData} setNewData={setNewData} handleSubmit={handleSubmit}></Forms>
+				<Forms
+					newData={newData}
+					setNewData={setNewData}
+					handleSubmit={handleSubmit}
+					validateForm={validateForm}
+					setValidateForm={setValidateForm}
+				></Forms>
 			</>
 			<ul>
 				<ListContent
 					listTransactions={listTransactions}
-					setListTransaction={setListTransactions}
+					foundedTransactions={foundedTransactions}
+					filterTransaction={filterTransaction}
 					removeThisTransaction={removeTransaction}
-					handleAllTransactions={handleAllTransactions}
-					handleFilterTransactions={handleFilterTransactions}
+					handleSearch={handleFounded}
+					handleResetSearch={handleResetSearch}
 				/>
 			</ul>
 			<>

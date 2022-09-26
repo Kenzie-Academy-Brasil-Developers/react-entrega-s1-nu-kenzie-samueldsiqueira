@@ -5,7 +5,7 @@ const Header = () => {
 		<>
 			<Card>
 				<h1 className='brand'>Nu Kenzie</h1>
-				<button className='brand-button'>Inicio</button>
+				<button className='large-primary--button'>Inicio</button>
 			</Card>
 		</>
 	);

@@ -21,8 +21,16 @@
 
 
 /*buttons*/
+button {
+    color: var(--very-gray);
+    background-color: var(--light-gray);
+    border: none;
+    font-size: var(--font-second-title);
+    border-radius: 0.25rem;
+    padding: 0.5rem 1rem;
+}
 
-.large-primary--button {
+button:focus {
     padding: 0.5rem 1rem;
     color: var(--very-light-gray);
     background-color: var(--color-primary);
@@ -31,10 +39,12 @@
     border-radius: 0.25rem;
 }
 
-.large-primary--button:hover {
+button:hover {
     color: var(--light-gray);
     background-color: var(--color-primary-light);
 }
+
+
 
 
 /* body {
