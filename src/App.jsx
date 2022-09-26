@@ -13,7 +13,7 @@ const App = () => {
 		id: Math.random(),
 		description: '',
 		type: 'Entrada',
-		value: Number,
+		value: Number(),
 	});
 	const [validateForm, setValidateForm] = useState(true);
 	const moneyStash = listTransactions.reduce((total, item) => {
@@ -32,10 +32,9 @@ const App = () => {
 
 		if (newData.description === '' || newData.value === '' || newData.type === '') {
 			setValidateForm(false);
-			return;
-		}
-		if (newData.type === 'Saída') {
+		} else if (newData.type === 'Saída') {
 			if (newData.value > 0) {
+				console.log(newData.value);
 				setValidateForm(false);
 			}
 			return;
@@ -53,7 +52,7 @@ const App = () => {
 			id: Number(Math.random()),
 			description: '',
 			type: 'Entrada',
-			value: '',
+			value: Number(),
 		});
 	};
 

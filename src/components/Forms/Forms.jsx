@@ -41,10 +41,10 @@ const Forms = ({ handleSubmit, setNewData, newData, validateForm, setValidateFor
 						id='typeForme'
 						className={style.validateForm}
 						value={newData.type}
-						onChange={(event) => setNewData({ ...newData, type: event.target.value.toLowerCase() })}
+						onChange={(event) => setNewData({ ...newData, type: event.target.value })}
 					>
-						<option value='entrada'>Entrada</option>
-						<option value='saida'>Despesas</option>
+						<option value='Entrada'>Entrada</option>
+						<option value='Saída'>Despesas</option>
 					</select>
 				</label>
 				<button type='submit'>Adicionar</button>
