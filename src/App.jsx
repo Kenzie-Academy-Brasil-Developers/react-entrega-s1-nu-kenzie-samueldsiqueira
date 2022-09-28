@@ -72,32 +72,34 @@ const App = () => {
 			<>
 				<Header />
 			</>
-			<Card>
-				<>
-					<Forms
-						newData={newData}
-						setNewData={setNewData}
-						handleSubmit={handleSubmit}
-						validateForm={validateForm}
-						setValidateForm={setValidateForm}
-					/>
-				</>
-				<>
-					<TotalMoney moneyStash={moneyStash} />
-				</>
-			</Card>
-			<Card>
-				<>
-					<ListContent
-						listTransactions={listTransactions}
-						foundedTransactions={foundedTransactions}
-						filterTransaction={filterTransaction}
-						removeThisTransaction={removeTransaction}
-						handleSearch={handleFounded}
-						handleResetSearch={handleResetSearch}
-					/>
-				</>
-			</Card>
+			<main>
+				<Card>
+					<>
+						<Forms
+							newData={newData}
+							setNewData={setNewData}
+							handleSubmit={handleSubmit}
+							validateForm={validateForm}
+							setValidateForm={setValidateForm}
+						/>
+					</>
+					<>
+						<TotalMoney moneyStash={moneyStash} />
+					</>
+				</Card>
+				<Card>
+					<>
+						<ListContent
+							listTransactions={listTransactions}
+							foundedTransactions={foundedTransactions}
+							filterTransaction={filterTransaction}
+							removeThisTransaction={removeTransaction}
+							handleSearch={handleFounded}
+							handleResetSearch={handleResetSearch}
+						/>
+					</>
+				</Card>
+			</main>
 		</>
 	);
 };

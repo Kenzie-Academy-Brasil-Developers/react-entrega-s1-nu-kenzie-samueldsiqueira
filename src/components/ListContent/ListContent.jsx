@@ -10,7 +10,7 @@ const ListContent = ({
 }) => {
 	const newListTransaction = filterTransaction !== 'todos' ? foundedTransactions : listTransactions;
 	return (
-		<div>
+		<>
 			<Card>
 				<>
 					<h2>Resumo financeiro</h2>
@@ -54,11 +54,15 @@ const ListContent = ({
 							</li>
 						))
 					) : (
-						<p>Nenhuma transação encontrada</p>
+						<li>
+							<p>Nenhuma transação encontrada</p>
+
+							<button disabled={true}>X</button>
+						</li>
 					)}
 				</ul>
 			</Card>
-		</div>
+		</>
 	);
 };
 
