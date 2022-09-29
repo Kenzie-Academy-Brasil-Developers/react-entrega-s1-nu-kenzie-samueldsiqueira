@@ -1,39 +1,74 @@
-form {
-  width: 90%;
-  height: 100%;
+input {
+  border: 1px solid transparent;
+  background-color: var(--light-gray);
+  border-radius: 0.25rem;
+  padding: 0.5rem;
+  font-size: var(--font-headline);
+}
+
+select {
+  border: 1px solid transparent;
+  background-color: var(--light-gray);
+  border-radius: 0.25rem;
+  padding: 0.5rem;
+  font-size: var(--font-headline);
+}
+
+.formsContent {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  width: 90%;
   gap: 2rem;
+  padding: 1rem;
 }
 
-input {
-  background-color: var(--light-gray);
-  color: var(--gray);
-  border: none;
-  border-radius: 0.25rem;
-  padding: 0.5rem 1rem;
-}
-
-.validForm {
+.forms {
+  border-radius: 0.4rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 100%;
-  height: 100%;
-  padding: 0 1rem;
-  border: 1px solid transparent;
+  border: 1px solid var(--light-gray);
+  max-height: 19rem;
+}
+
+.valueSection {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+  justify-content: space-between;
+  align-items: baseline;
+
+
+}
+
+.formValue {
+  width: 45%;
+
+}
+
+
+
+.validForm {
+  display: flex;
+  width: 95%;
 }
 
 .invalidForm {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  content: attr('Valor inválido');
   width: 100%;
-  height: 100%;
-  padding: 0 1rem;
-  border: 1px solid red;
+  border: 1px solid rgba(255, 0, 0, 0.783);
+}
+
+
+.labelText {
+  font-size: var(--font-subtitle);
+  font-weight: 400;
+  color: var(--very-gray);
+}
+
+.helpText {
+  font-size: var(--font-subtitle);
+  color: var(--gray);
+
 }

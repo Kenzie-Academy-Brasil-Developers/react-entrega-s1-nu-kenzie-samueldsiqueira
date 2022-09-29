@@ -1,12 +1,18 @@
-import Card from '../Card/Card';
+import styled from './TotalMoney.module.css';
 
 const TotalMoney = ({ moneyStash }) => {
 	return (
-		<Card>
-			<h3>Saldo:</h3>
-			<p>$ {moneyStash}</p>
-			<p>O saldo que você possui</p>
-		</Card>
+		<div className={styled.totalContent}>
+			<div className={styled.yourMoney}>
+				<h3>Saldo:</h3>
+				<h3>
+					<strong>R$ {moneyStash}</strong>
+				</h3>
+			</div>
+			<div className={styled.textHelp}>
+				<p>O saldo que você possui</p>
+			</div>
+		</div>
 	);
 };
 

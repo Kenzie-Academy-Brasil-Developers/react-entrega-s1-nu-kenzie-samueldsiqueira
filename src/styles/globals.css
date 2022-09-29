@@ -1,7 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;500;600;700;800;1000&display=swap');
+
+body {
+    font-family: 'Nunito', sans-serif;
+}
+
 :root {
     --color-primary: #fd377e;
     --color-primary-light: #e34981;
-    --color-secundary: #03b898;
+    --color-secondary: #03b898;
 
     /* gray scale */
 
@@ -11,12 +17,14 @@
     --very-light-gray: #f8f9fa;
 
     /* font sizes */
+
     --font-title: 1.75rem;
     --font-second-title: 1.5rem;
     --font-third-title: 1.25rem;
     --font-subtitle: 0.75rem;
     --font-headline: 1rem;
     --font-body: 0.75rem;
+
 }
 
 
@@ -56,8 +64,21 @@ button:focus {
 
 
 main {
-    margin: 0 100px;
-    display: grid;
-    grid-template-columns: 1fr 2fr;
-    grid-template-rows: 1fr 10fr;
+    margin: 0 100px 0 100px;
+    display: flex;
+    flex-direction: row;
+}
+
+.form-section {
+    width: 45%;
+}
+
+.transaction-section {
+    margin-left: 3rem;
+    width: 100%;
+    overflow: hidden;
+}
+
+.no-render {
+    margin-top: 5rem;
 }

@@ -1,11 +1,10 @@
-import Card from '../Card/Card';
 import style from './Forms.module.css';
 
-const Forms = ({ handleSubmit, setNewData, newData, validateForm, setValidateForm }) => {
+const Forms = ({ handleSubmit, setNewData, newData, validateForm, setValidateForm, moneyStash }) => {
 	return (
-		<Card>
-			<form onSubmit={handleSubmit}>
-				<label>
+		<div className={style.forms}>
+			<form className={style.formsContent} onSubmit={handleSubmit}>
+				<label className={style.labelText}>
 					Descrição
 					<input
 						type='text'
@@ -16,40 +15,46 @@ const Forms = ({ handleSubmit, setNewData, newData, validateForm, setValidateFor
 						value={newData.description}
 						onChange={(event) => setNewData({ ...newData, description: event.target.value })}
 					/>
-					<span>Ex: Compra de roupas</span>
+					<span className={style.helpText}>Ex: Compra de roupas</span>
 				</label>
+				<div className={style.valueSection}>
+					<div className={style.formValue}>
+						<label className={style.labelText}>
+							Valor
+							<input
+								className={validateForm ? style.validForm : style.invalidForm}
+								type='number'
+								id='valueForm'
+								placeholder='R$ 0,00'
+								name='value'
+								value={newData.value}
+								onChange={(event) => setNewData({ ...newData, value: Number(event.target.value) })}
+							/>
+							<span className={style.helpText}>Ex: 100,00</span>
+						</label>
+					</div>
 
-				<label>
-					Valor
-					<input
-						className={validateForm ? style.validForm : style.invalidForm}
-						type='number'
-						id='valueForm'
-						placeholder='Digite aqui o valor'
-						name='value'
-						value={newData.value}
-						onChange={(event) => setNewData({ ...newData, value: Number(event.target.value) })}
-					/>
-					<span>Ex: 100,00</span>
-				</label>
+					<div className={style.selectTransaction}>
+						<label>
+							<p className={style.labelText}>Tipo</p>
+						</label>
+						<select
+							name='type'
+							placeholder='Selecione'
+							id='typeForme'
+							className={style.validateForm}
+							value={newData.type}
+							onChange={(event) => setNewData({ ...newData, type: event.target.value })}
+						>
+							<option value='Entrada'>Entrada</option>
+							<option value='Despesas'>Despesas</option>
+						</select>
+					</div>
+				</div>
 
-				<label>
-					Tipo
-					<select
-						name='type'
-						placeholder='Selecione'
-						id='typeForme'
-						className={style.validateForm}
-						value={newData.type}
-						onChange={(event) => setNewData({ ...newData, type: event.target.value })}
-					>
-						<option value='Entrada'>Entrada</option>
-						<option value='Saída'>Despesas</option>
-					</select>
-				</label>
 				<button type='submit'>Adicionar</button>
 			</form>
-		</Card>
+		</div>
 	);
 };
 

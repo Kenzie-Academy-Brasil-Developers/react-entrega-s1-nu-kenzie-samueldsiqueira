@@ -5,7 +5,6 @@ import Forms from './components/Forms/Forms';
 import TotalMoney from './components/TotalMoney/TotalMoney';
 import Header from './components/Header/Header';
 import ListContent from './components/ListContent/ListContent';
-import Card from './components/Card/Card';
 
 const App = () => {
 	const [listTransactions, setListTransactions] = useState([]);
@@ -13,7 +12,10 @@ const App = () => {
 		id: Math.random(),
 		description: '',
 		type: 'Entrada',
-		value: Number(),
+		value: Number().toFixed(3).replace('.', ',').toLocaleString('pt-BR', {
+			style: 'currency',
+			currency: 'BRL',
+		}),
 	});
 	const [validateForm, setValidateForm] = useState(true);
 	const moneyStash = listTransactions.reduce((total, item) => {
@@ -30,15 +32,11 @@ const App = () => {
 	const handleSubmit = (event) => {
 		event.preventDefault();
 
-		if (newData.description === '' || newData.value === '' || newData.type === '') {
+		if (newData.description === '' || newData.value === '') {
 			setValidateForm(false);
-		} else if (newData.type === 'Saída') {
-			if (newData.value > 0) {
-				console.log(newData.value);
-				setValidateForm(false);
-			}
 			return;
 		}
+
 		const newTransaction = {
 			id: Math.random(),
 			description: newData.description,
@@ -46,13 +44,20 @@ const App = () => {
 			value: newData.value,
 		};
 
+		newTransaction.type === 'Entrada'
+			? (newTransaction.value = newTransaction.value)
+			: (newTransaction.value = -newTransaction.value);
+
 		setListTransactions([...listTransactions, newTransaction]);
 
 		setNewData({
 			id: Number(Math.random()),
 			description: '',
 			type: 'Entrada',
-			value: Number(),
+			value: Number().toFixed(3).replace('.', ',').toLocaleString('pt-BR', {
+				style: 'currency',
+				currency: 'BRL',
+			}),
 		});
 	};
 
@@ -68,39 +73,34 @@ const App = () => {
 	};
 
 	return (
-		<>
-			<>
-				<Header />
-			</>
+		<div>
+			<Header />
 			<main>
-				<Card>
-					<>
-						<Forms
-							newData={newData}
-							setNewData={setNewData}
-							handleSubmit={handleSubmit}
-							validateForm={validateForm}
-							setValidateForm={setValidateForm}
-						/>
-					</>
+				<section className='form-section'>
+					<Forms
+						newData={newData}
+						setNewData={setNewData}
+						handleSubmit={handleSubmit}
+						validateForm={validateForm}
+						setValidateForm={setValidateForm}
+						moneyStash={moneyStash}
+					/>
 					<>
 						<TotalMoney moneyStash={moneyStash} />
 					</>
-				</Card>
-				<Card>
-					<>
-						<ListContent
-							listTransactions={listTransactions}
-							foundedTransactions={foundedTransactions}
-							filterTransaction={filterTransaction}
-							removeThisTransaction={removeTransaction}
-							handleSearch={handleFounded}
-							handleResetSearch={handleResetSearch}
-						/>
-					</>
-				</Card>
+				</section>
+				<section className='transaction-section'>
+					<ListContent
+						listTransactions={listTransactions}
+						foundedTransactions={foundedTransactions}
+						filterTransaction={filterTransaction}
+						removeThisTransaction={removeTransaction}
+						handleSearch={handleFounded}
+						handleResetSearch={handleResetSearch}
+					/>
+				</section>
 			</main>
-		</>
+		</div>
 	);
 };
 

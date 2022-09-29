@@ -1,15 +1,17 @@
-import Card from '../Card/Card';
+import style from './Header.module.css';
 
 const Header = () => {
 	return (
-		<div>
-			<Card>
-				<h1 className='brand'>
-					<strong>Nu</strong> Kenzie
+		<div className={style.headerNav}>
+			<div className={style.headerContent}>
+				<h1 className={style.brand}>
+					<strong>Nu </strong> Kenzie
 				</h1>
 
-				<button className='large-primary--button'>Inicio</button>
-			</Card>
+				<div className={style.btnHeader}>
+					<button className='large-primary--button'>Inicio</button>
+				</div>
+			</div>
 		</div>
 	);
 };

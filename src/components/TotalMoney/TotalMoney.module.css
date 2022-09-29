@@ -1,0 +1,35 @@
+.totalContent {
+  margin-top: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid var(--light-gray);
+  border-radius: 5px;
+  width: 100%;
+  height: 5rem;
+  gap: 0.5rem;
+}
+
+.yourMoney {
+  font-size: var(--font-second-title);
+  width: 85%;
+  color: var(--very-gray);
+  display: flex;
+  justify-content: space-between;
+}
+
+.textHelp {
+  width: 85%;
+}
+
+p {
+  font-size: var(--font-headline);
+  color: var(--gray);
+}
+
+h3 {
+  font-size: var(--font-third-title);
+  font-weight: 800;
+  color: var(--very-gray);
+}

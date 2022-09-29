@@ -1,0 +1,132 @@
+.btnSection {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+.btnTitle {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--very-gray);
+}
+
+.btnGrupe {
+  display: flex;
+  gap: 1rem;
+}
+
+li {
+  margin-top: 2rem;
+}
+
+h3 {
+  font-size: var(--font-second-title);
+  font-weight: 500;
+  color: var(--very-gray);
+}
+
+h2 {
+  font-size: var(--font-title);
+  font-weight: 700;
+  color: var(--very-gray);
+}
+
+.emptyItem {
+  margin-top: 00.9rem;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  height: 150px;
+  border-radius: 0.5rem;
+  border-left: 8px solid var(--light-gray);
+  background-color: var(--very-light-gray);
+}
+
+.emptyContent {
+  width: 65%;
+  height: 2rem;
+  background-color: var(--light-gray);
+  border-radius: 0.25rem;
+  margin-left: 0.5rem;
+}
+
+.emptySubContent {
+  margin-left: 0.5rem;
+  width: 50%;
+  height: 1.8rem;
+  background-color: var(--light-gray);
+  border-radius: 0.25rem;
+}
+
+.itemLoss {
+
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 7rem;
+  border-radius: 0.5rem;
+  border-left: 8px solid var(--gray);
+  background-color: var(--very-light-gray);
+}
+
+
+.itemGain {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 7rem;
+  border-radius: 0.5rem;
+  border-left: 8px solid var(--color-secondary);
+  background-color: var(--very-light-gray);
+}
+
+.Despesas {
+  margin-top: 00.4rem;
+  width: 100%;
+  display: flex;
+  height: 10rem;
+  border-radius: 0.5rem;
+  border-left: 8px solid var(--light-gray);
+  background-color: var(--very-light-gray);
+}
+
+.itemDescription {
+  display: flex;
+  align-items: center;
+  height: 70%;
+  width: 100%;
+  justify-content: space-between;
+  font-size: var(--font-title);
+  margin-left: 0.5rem;
+}
+
+.rightSide {
+  display: flex;
+  width: 30%;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.rightSide>h3 {
+  font-size: var(--font-subtitle);
+  font-weight: 400;
+  color: var(--very-gray);
+}
+
+.btnRemove {
+  cursor: pointer;
+  margin-right: 01rem;
+  width: 3rem;
+  font-size: var(--font-headline);
+  text-align: center;
+  height: 2.3rem;
+}
+
+.itemType {
+  width: 100%;
+  margin-left: 0.5rem;
+
+}
