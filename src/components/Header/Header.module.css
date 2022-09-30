@@ -37,3 +37,14 @@ strong {
   align-items: flex-end;
   max-height: 50%;
 }
+
+@media (max-width: 950px) {
+  .headerContent {
+    margin: 0 50px;
+  }
+
+  .brand {
+    font-size: 1.5rem;
+  }
+
+}

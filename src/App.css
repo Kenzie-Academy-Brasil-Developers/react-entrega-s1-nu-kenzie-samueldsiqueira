@@ -1,39 +1,74 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
+.no-login {
+  background-color: var(--very-gray);
   min-height: 100vh;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+
 }
 
-.App-link {
-  color: #61dafb;
+.client-login {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 2rem;
+  width: 17rem;
+  height: 39rem;
+  transition: all 0.3s ease;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.client-image {
+  display: flex;
+  transition: all 0.3s ease;
+}
+
+.btn-primary {
+  background-color: var(--color-primary);
+  color: var(--very-light-gray);
+  width: 77%;
+  height: 8%;
+  font: var(--font-subtitle);
+}
+
+.brand-text {
+  font: var(--font-title);
+  color: var(--very-light-gray);
+  font-weight: 800;
+}
+
+.sub-text {
+  color: var(--very-light-gray);
+  font-weight: 600;
+}
+
+
+
+.btn-primary:hover {
+  color: var(--light-gray);
+  background-color: var(--color-primary-light);
+}
+
+
+@media (max-width: 950px) {
+  .client-login {
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
   }
 
-  to {
-    transform: rotate(360deg);
+  .client-image {
+    display: none;
+  }
+
+  @media (max-width: 550px) {
+    .client-login {
+      width: 100%;
+      height: 100%;
+      justify-content: center;
+      align-items: center;
+    }
   }
 }

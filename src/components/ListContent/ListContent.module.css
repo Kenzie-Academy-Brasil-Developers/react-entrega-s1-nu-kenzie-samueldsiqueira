@@ -130,3 +130,61 @@ h2 {
   margin-left: 0.5rem;
 
 }
+
+@media (max-width: 950px) {
+  .itemDescription {
+    font-size: var(--font-subtitle);
+  }
+
+  .btnTitle {
+    font-size: var(--font-subtitle);
+  }
+
+  .btnRemove {
+    width: 2.5rem;
+    height: 2rem;
+    font-size: var(--font-subtitle);
+  }
+
+  .rightSide>h3 {
+    font-size: var(--font-subtitle);
+  }
+
+  .itemType {
+    font-size: var(--font-subtitle);
+  }
+
+  .emptyItem {
+    height: 100px;
+  }
+
+  .emptyContent {
+    width: 50%;
+  }
+
+  .emptySubContent {
+    width: 40%;
+  }
+
+  .itemLoss {
+    height: 5rem;
+  }
+
+  .itemGain {
+    height: 5rem;
+  }
+
+  .Despesas {
+    height: 8rem;
+  }
+
+  .btnGrupe {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+
+
+
+
+}

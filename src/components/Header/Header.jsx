@@ -1,6 +1,6 @@
 import style from './Header.module.css';
 
-const Header = () => {
+const Header = ({ setLogin }) => {
 	return (
 		<div className={style.headerNav}>
 			<div className={style.headerContent}>
@@ -9,7 +9,9 @@ const Header = () => {
 				</h1>
 
 				<div className={style.btnHeader}>
-					<button className='large-primary--button'>Inicio</button>
+					<button className='large-primary--button' onClick={() => setLogin(false)}>
+						Inicio
+					</button>
 				</div>
 			</div>
 		</div>

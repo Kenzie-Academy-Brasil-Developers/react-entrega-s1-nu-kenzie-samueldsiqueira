@@ -72,3 +72,45 @@ select {
   color: var(--gray);
 
 }
+
+@media (max-width: 950px) {
+  .formsContent {
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .forms {
+    width: 100%;
+    height: 100%;
+  }
+
+  .valueSection {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .formValue {
+    width: 100%;
+  }
+
+  .validForm {
+    width: 100%;
+  }
+
+  .invalidForm {
+    width: 100%;
+  }
+
+  .labelText {
+    font-size: var(--font-subtitle);
+    font-weight: 400;
+    color: var(--very-gray);
+  }
+
+  .helpText {
+    font-size: var(--font-subtitle);
+    color: var(--gray);
+  }
+}
